@@ -1,4 +1,4 @@
 *.un~
 *.md~
 front/node_modules/*
-./front/package-lock.json
+front/package-lock.json
