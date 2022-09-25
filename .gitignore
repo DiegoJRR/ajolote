@@ -28,4 +28,5 @@ front/dist-ssr
 *.njsproj
 *.sln
 *.sw?
+vision/__pycache__/*
 
