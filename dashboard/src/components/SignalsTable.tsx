@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { definitions } from '../types/supabase';
 import { descriptiveSignalType } from '../utils';
 import Card from './Card';
+import EntityTable from './EntityTable';
 
 export const SignalRow = ({ signal }: { signal: definitions['signal'] }) => {
     return (
@@ -41,25 +42,12 @@ const SignalsTable = ({}) => {
     ]);
 
     return (
-        <Card p={2}>
-            <VStack align={'left'}>
-                <Heading size={'sm'} alignSelf='center'>Historial de señales</Heading>
-                <TableContainer>
-                    <Table variant="striped" colorScheme={'gray'} size="sm">
-                        <Thead>
-                            <Tr>
-                                <Th>Fecha</Th>
-                                <Th>Indicador</Th>
-                                <Th isNumeric>Valor</Th>
-                            </Tr>
-                        </Thead>
-                        <Tbody>
-                            {signals.map((signal) => SignalRow({ signal }))}
-                        </Tbody>
-                    </Table>
-                </TableContainer>
-            </VStack>
-        </Card>
+        <EntityTable
+            headings={['Fecha', 'Indicador', 'Valor']}
+            title="Historial de señales"
+        >
+            {signals.map((signal) => SignalRow({ signal }))}
+        </EntityTable>
     );
 };
 
