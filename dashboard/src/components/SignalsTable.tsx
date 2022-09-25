@@ -1,22 +1,8 @@
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
-    Box,
-    VStack,
-    Heading,
-} from '@chakra-ui/react';
+import { Tr, Td } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import { definitions } from '../types/supabase';
 import { descriptiveSignalType } from '../utils';
-import Card from './Card';
 import EntityTable from './EntityTable';
 
 export const SignalRow = ({ signal }: { signal: definitions['signal'] }) => {

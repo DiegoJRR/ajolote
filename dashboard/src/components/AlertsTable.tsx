@@ -1,17 +1,4 @@
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
-    Box,
-    VStack,
-    Heading,
-} from '@chakra-ui/react';
+import { Tr, Td } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import { definitions } from '../types/supabase';
@@ -22,7 +9,9 @@ export const AlertRow = ({
 }: {
     signal: definitions['alert'];
 }) => {
-    const customProps = alert.acknowledge ? { bgColor: 'red.100 !important', color: 'red.600' } : {};
+    const customProps = alert.acknowledge
+        ? { bgColor: 'red.100 !important', color: 'red.600' }
+        : {};
     return (
         <Tr {...customProps}>
             <Td>{new Date(alert.created_at ?? '').toLocaleString()}</Td>
