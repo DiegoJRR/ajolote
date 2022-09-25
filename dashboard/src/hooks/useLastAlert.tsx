@@ -15,7 +15,12 @@ const useLastAlert = () => {
     >();
 
     const acknowledge = (alert: definitions['alert']) => {
-        // supabase.from('alert').update()
+        supabase.from('alert')
+            .update({ acknowledge: true})
+            .eq('id', alert.id)
+            .then((response) => {
+                console.log(response)
+            });
     }
 
     useEffect(() => {
