@@ -1,6 +1,8 @@
 import { Container, Flex, Heading } from '@chakra-ui/react';
+import { CurrentAlerts } from '../hooks/test';
 
 const Nav = () => {
+    let alerts = CurrentAlerts();
     return (
         <Container
             py={3}
