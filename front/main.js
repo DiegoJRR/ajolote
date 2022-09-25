@@ -1,7 +1,7 @@
 const PocketBase = require('pocketbase/cjs')
 require('cross-fetch/polyfill');
 
-const client = new PocketBase('http://127.0.0.1:8090');
+const client = new PocketBase('http://e222-131-178-102-216.ngrok.io');
 
 
 async function getRecords() {
@@ -22,5 +22,13 @@ async function newMeasurement() {
     console.log(response);
 }
 
-newMeasurement()
-getRecords()
+async function getByID() {
+    const record = await client.records.getOne('heart_rate', 'vwdd7ocpqb0anth');
+
+    console.log(record);
+}
+
+// newMeasurement()
+// getRecords()
+getByID()
+
