@@ -7,7 +7,6 @@ import {
     VStack,
 } from '@chakra-ui/react';
 import AlertsTable from '../components/AlertsTable';
-import SignalsTable from '../components/SignalsTable';
 import { definitions } from '../types/supabase';
 
 const Home = () => {
@@ -28,7 +27,6 @@ const Home = () => {
                 {currentAlert.message}
             </Alert>
             <HStack align={'stretch'}>
-                <SignalsTable></SignalsTable>
                 <AlertsTable></AlertsTable>
             </HStack>
         </Box>
