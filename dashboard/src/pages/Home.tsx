@@ -6,9 +6,12 @@ import {
     VStack,
     Text,
     Flex,
+    Button,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import ViewContainer from '../components/ViewContainer';
+import useLastAlert from '../hooks/useLastAlert';
+import useUser from '../hooks/useUser';
 import { definitions } from '../types/supabase';
 import AlertsView from './AlertsView';
 import InsightsView from './InsightsView';
@@ -23,15 +26,9 @@ enum View {
 console.log(Object.keys(View));
 const Home = () => {
     const [currentView, setCurrentView] = useState<View>(View.Summary);
-    const currentAlert: definitions['alert'] = {
-        id: 123,
-        created_at: new Date().toUTCString(),
-        insight: 124,
-        severity: 2,
-        message: 'una alerta',
-        user: '123',
-        acknowledge: true,
-    };
+
+    const { user } = useUser();
+    const { lastAlert, acknowledge } = useLastAlert(user.id);
 
     const getView = (view: View): React.ReactNode => {
         switch (view) {
@@ -48,10 +45,30 @@ const Home = () => {
 
     return (
         <Flex flexDir="column" w="100%" p={4} height="100%">
-            <Alert status="error" mb={3}>
-                <AlertIcon />
-                {currentAlert.message}
-            </Alert>
+            {lastAlert ? (
+                <Alert status="error" mb={3}>
+                    <Flex
+                        flexDir={'row'}
+                        align="center"
+                        w="100%"
+                        justify={'space-between'}
+                    >
+                        <Flex flexDir={'row'} align="center">
+                            <AlertIcon />
+                            {lastAlert.message}
+                        </Flex>
+                        <Button
+                            justifySelf={'flex-end'}
+                            variant="outline"
+                            colorScheme={'red'}
+                            onClick={() => acknowledge(lastAlert)}
+                        >
+                            {' '}
+                            OK
+                        </Button>
+                    </Flex>
+                </Alert>
+            ) : null}
             <Flex
                 flexDir="column"
                 w="100%"

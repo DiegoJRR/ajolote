@@ -36,6 +36,7 @@ ChartJS.register(
 const TimeSeriesChart = ({ timeSeries }: { timeSeries: TimeSeries[] }) => {
     return (
         <Scatter
+            height={'100px'}
             options={{
                 scales: {
                     x: {
