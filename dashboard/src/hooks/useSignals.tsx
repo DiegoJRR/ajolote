@@ -24,7 +24,7 @@ const useSignals = (user_id: string) => {
       });
 
     supabase
-      .from(`signal:id=eq.${user_id}`)
+      .from(`signal:user=eq.${user_id}`)
       .on(
         "INSERT",
         (payload: SupabaseRealtimePayload<definitions["signal"]>) => {
