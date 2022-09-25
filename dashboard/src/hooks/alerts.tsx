@@ -16,10 +16,10 @@ export function useCurrentAlerts(): definitions["alert"][] {
       .select("*")
       .then((response) => {
         if (!response.error) {
-          console.log(response.data);
+          // console.log(response.data);
           setAlerts(response.data);
         } else {
-          console.log(response.error);
+          // console.log(response.error);
         }
       });
   });
