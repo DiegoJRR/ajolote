@@ -1,5 +1,7 @@
 import { Tr, Td } from '@chakra-ui/react';
 import { useState } from 'react';
+import useSignals from '../hooks/useSignals';
+import useUser from '../hooks/useUser';
 
 import { definitions } from '../types/supabase';
 import { descriptiveSignalType } from '../utils';
@@ -15,17 +17,12 @@ export const SignalRow = ({ signal }: { signal: definitions['signal'] }) => {
     );
 };
 
-const SignalsTable = ({}) => {
+const SignalsTable = ({signals}: {signals: definitions['signal'][]}) => {
     // @ts-ignore
-    const [signals, setSignals] = useState<definitions['signal'][]>([
-        {
-            id: 123,
-            created_at: new Date().toUTCString(),
-            value: 13212,
-            type: 'string',
-            user: 'string',
-        } as definitions['signal'],
-    ]);
+    const { user } = useUser();
+    // const signals = useSignals(user.id);
+
+    console.log('TABLE SIGNALS', signals);
 
     return (
         <EntityTable

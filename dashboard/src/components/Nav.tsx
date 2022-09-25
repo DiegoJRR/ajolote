@@ -1,8 +1,6 @@
-import { Box, Container, Flex, Heading } from "@chakra-ui/react";
-import { useCurrentAlerts } from "../hooks/alerts";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
 const Nav = () => {
-  let alerts = useCurrentAlerts();
   return (
     <Box
       h="100%"

@@ -12,13 +12,14 @@ function App() {
             gridTemplateRows={'50px 1fr'}
             gridTemplateColumns={'1fr'}
             h="100vh"
+            maxH="100vh"
             color="blackAlpha.700"
             fontWeight="bold"
         >
             <GridItem area={'header'}>
                 <Nav></Nav>
             </GridItem>
-            <GridItem area={'main'}>
+            <GridItem area={'main'} overflowY="hidden">
                 <Home></Home>
             </GridItem>
         </Grid>

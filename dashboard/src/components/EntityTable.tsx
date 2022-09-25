@@ -38,7 +38,7 @@ const EntityTable = ({
                             <Thead>
                                 <Tr>
                                     {headings.map((heading) => (
-                                        <Th>{heading}</Th>
+                                        <Th key={heading}>{heading}</Th>
                                     ))}
                                 </Tr>
                             </Thead>
