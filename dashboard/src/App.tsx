@@ -30,13 +30,13 @@ function App() {
             color="blackAlpha.700"
             fontWeight="bold"
         >
-            <GridItem bg="orange.300" area={'header'}>
+            <GridItem area={'header'}>
                 <Nav></Nav>
             </GridItem>
             <GridItem bg="pink.300" area={'nav'}>
                 Nav
             </GridItem>
-            <GridItem bg="green.300" area={'main'}>
+            <GridItem area={'main'}>
                 <Home></Home>
             </GridItem>
         </Grid>
