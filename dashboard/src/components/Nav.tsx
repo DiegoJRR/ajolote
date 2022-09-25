@@ -10,7 +10,7 @@ const Nav = () => {
             color="white"
         >
             <Flex alignItems="center" justifyContent="space-around" w="100%">
-                <Heading>Alojote</Heading>
+                <Heading>Ajolote</Heading>
             </Flex>
         </Container>
     );
