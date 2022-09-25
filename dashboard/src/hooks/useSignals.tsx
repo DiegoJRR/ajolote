@@ -1,5 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
-import { useEffect, useState } from "react";
+import { createClient, SupabaseRealtimePayload } from "@supabase/supabase-js";
+import { useEffect, useMemo, useState } from "react";
 import { definitions } from "../types/supabase";
 
 // TODO: Mover esto a un archivo comun para los juks
@@ -9,7 +9,7 @@ const supabase = createClient(
 );
 
 const useSignals = (user_id: string) => {
-  const [signals, setSignal] = useState<definitions["signal"][]>([]);
+  const [signals, setSignals] = useState<definitions["signal"][]>([]);
 
   useEffect(() => {
     supabase
@@ -19,9 +19,20 @@ const useSignals = (user_id: string) => {
       .then((response) => {
         let signalsData = response.data;
         if (signalsData) {
-          setSignal(signalsData);
+          setSignals(signalsData);
         }
       });
+
+    supabase
+      .from(`signal:id=eq.${user_id}`)
+      .on(
+        "INSERT",
+        (payload: SupabaseRealtimePayload<definitions["signal"]>) => {
+          if (payload.new) {
+            setSignals([...signals, payload.new]);
+          }
+        }
+      );
   }, []);
 
   return signals;
