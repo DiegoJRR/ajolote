@@ -1,5 +1,14 @@
-import { Alert, AlertIcon, Box, Select, VStack, Text } from '@chakra-ui/react';
+import {
+    Alert,
+    AlertIcon,
+    Box,
+    Select,
+    VStack,
+    Text,
+    Flex,
+} from '@chakra-ui/react';
 import { useState } from 'react';
+import ViewContainer from '../components/ViewContainer';
 import { definitions } from '../types/supabase';
 import AlertsView from './AlertsView';
 import InsightsView from './InsightsView';
@@ -38,12 +47,12 @@ const Home = () => {
     };
 
     return (
-        <Box w="100%" p={4} height="100%">
+        <Flex flexDir="column" w="100%" p={4} height="100%">
             <Alert status="error" mb={3}>
                 <AlertIcon />
                 {currentAlert.message}
             </Alert>
-            <VStack align={'stretch'} w="100%">
+            <Flex flexDir="column" w="100%" flex={1} rowGap={2}>
                 <Box>
                     <VStack align="left">
                         <Text>Vista actual</Text>
@@ -64,9 +73,9 @@ const Home = () => {
                         </Select>
                     </VStack>
                 </Box>
-                {getView(currentView)}
-            </VStack>
-        </Box>
+                <ViewContainer>{getView(currentView)}</ViewContainer>
+            </Flex>
+        </Flex>
     );
 };
 
