@@ -9,23 +9,22 @@ const supabase = createClient(
 );
 
 const useSignals = (user_id: string) => {
-  const [signals, setSignal] = useState<definitions['signal'][]>([]);
+  const [signals, setSignal] = useState<definitions["signal"][]>([]);
 
   useEffect(() => {
-      supabase
-        .from<definitions['signal']>('signal')
-        .select("*")
-        .eq("user", user_id)
-        .then((response) => {
-            let signalsData = response.data;
-            if(signalsData) {
-                setSignal(signalsData);
-            }
+    supabase
+      .from<definitions["signal"]>("signal")
+      .select("*")
+      .eq("user", user_id)
+      .then((response) => {
+        let signalsData = response.data;
+        if (signalsData) {
+          setSignal(signalsData);
         }
-            );
-  })
+      });
+  });
 
   return signals;
-}
+};
 
 export default useSignals;

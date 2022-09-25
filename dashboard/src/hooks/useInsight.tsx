@@ -12,14 +12,14 @@ const useInsight = (insight_id: number) => {
   const [insight, setInsight] = useState<definitions["insight"]>();
 
   useEffect(() => {
-      supabase
-        .from<definitions["insight"]>("insight")
-        .select("*")
-        .eq("id", insight_id)
-        .then((response) => setInsight(response.data?.at(0)));
-  })
+    supabase
+      .from<definitions["insight"]>("insight")
+      .select("*")
+      .eq("id", insight_id)
+      .then((response) => setInsight(response.data?.at(0)));
+  });
 
   return insight;
-}
+};
 
 export default useInsight;
