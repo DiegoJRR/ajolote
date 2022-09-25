@@ -25,6 +25,3 @@ class Signal:
         response = self.supabase_client.table("signal").insert(data).execute()
         print(response)
 
-signal = Signal("mse", 2, "b38375c8-1a43-42b9-b711-53df7d4434d5")
-# print(signal.get_signal(""))
-signal.post()
