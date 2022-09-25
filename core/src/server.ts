@@ -21,7 +21,9 @@ const signalListener = async (payload: SupabaseRealtimePayload<definitions['sign
   const { new: entry } = payload;
 
   if (entry.type == 'bpm') {
+    console.log('entry');
     if (entry.value > 100) {
+      console.log('trigger');
       const inisightCommit = await supabase
         .from<definitions['insight']>('insight')
         .insert({
@@ -39,17 +41,19 @@ const signalListener = async (payload: SupabaseRealtimePayload<definitions['sign
           .select('*')
           .eq('user', MOCK_USER)
           .order('created_at', { ascending: false })
+          .limit(1)
           .single();
 
-        if (lastAlert.data && minutesSinceDate(lastAlert.data.created_at) > 60) {
+        // if (lastAlert.data && minutesSinceDate(lastAlert.data.created_at) > 60) {
+        if (lastAlert.data) {
           const alert = await supabase.from<definitions['alert']>('alert').insert({
             user: MOCK_USER,
             insight: inisightCommit.data.id,
             severity: 1,
           });
           console.log(alert.data);
-        }
-      }
+        } else console.log(lastAlert.error);
+      } else console.log(inisightCommit.error);
     } else {
       console.log('no alert');
     }

@@ -52,7 +52,13 @@ const Home = () => {
                 <AlertIcon />
                 {currentAlert.message}
             </Alert>
-            <Flex flexDir="column" w="100%" flex={1} rowGap={2}>
+            <Flex
+                flexDir="column"
+                w="100%"
+                flex={1}
+                rowGap={2}
+                overflowY="scroll"
+            >
                 <Box>
                     <VStack align="left">
                         <Text>Vista actual</Text>
