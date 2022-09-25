@@ -1,7 +1,7 @@
 <script>
 	import { Router, Route, Link } from "svelte-navigator";
-  import History from "./History.svelte";
-    import Login from "./History.svelte";
+  import History from "./Login.svelte";
+    import Login from "./Login.svelte";
 </script>
 
 <Router>
