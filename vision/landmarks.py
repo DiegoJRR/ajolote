@@ -6,14 +6,15 @@ p = "D:\programacion\\ajolote\\vision\shape_predictor_68_face_landmarks.dat"
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(p)
 
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
  
 while True:
+    
     _, image = cap.read()
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         
     rects = detector(gray, 0)
-    
+    print(rects)
     for (i, rect) in enumerate(rects):
 
         shape = predictor(gray, rect)
