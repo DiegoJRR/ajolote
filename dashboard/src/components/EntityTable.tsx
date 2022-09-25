@@ -29,7 +29,7 @@ const EntityTable = ({
                     </Heading>
                 )}
                 <TableContainer>
-                    <Table variant="striped" colorScheme={'gray'} size="sm">
+                    <Table variant="simple" colorScheme={'gray'} size="sm">
                         <Thead>
                             <Tr>
                                 {headings.map((heading) => (

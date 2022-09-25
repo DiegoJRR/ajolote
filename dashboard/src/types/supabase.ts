@@ -121,6 +121,7 @@ export interface paths {
           acknowledge?: parameters["rowFilter.alert.acknowledge"];
           user?: parameters["rowFilter.alert.user"];
           severity?: parameters["rowFilter.alert.severity"];
+          message?: parameters["rowFilter.alert.message"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -177,6 +178,7 @@ export interface paths {
           acknowledge?: parameters["rowFilter.alert.acknowledge"];
           user?: parameters["rowFilter.alert.user"];
           severity?: parameters["rowFilter.alert.severity"];
+          message?: parameters["rowFilter.alert.message"];
         };
         header: {
           /** Preference */
@@ -197,6 +199,7 @@ export interface paths {
           acknowledge?: parameters["rowFilter.alert.acknowledge"];
           user?: parameters["rowFilter.alert.user"];
           severity?: parameters["rowFilter.alert.severity"];
+          message?: parameters["rowFilter.alert.message"];
         };
         body: {
           /** alert */
@@ -338,6 +341,7 @@ export interface definitions {
     acknowledge?: boolean;
     user: string;
     severity: number;
+    message?: string;
   };
   insight: {
     /**
@@ -387,6 +391,7 @@ export interface parameters {
   "rowFilter.alert.acknowledge": string;
   "rowFilter.alert.user": string;
   "rowFilter.alert.severity": string;
+  "rowFilter.alert.message": string;
   /** insight */
   "body.insight": definitions["insight"];
   "rowFilter.insight.id": string;
