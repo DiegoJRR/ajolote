@@ -1,7 +1,5 @@
 from supabase import create_client 
-import requests
 from typing import List
-from datetime import datetime
 
 class Signal:
     def __init__(self, type: str, value: str, user_id: str):
