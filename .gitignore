@@ -1,4 +1,5 @@
 *.un~
 *.md~
 front/node_modules/*
+./front/package-lock.json
 *.mp4
