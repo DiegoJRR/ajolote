@@ -1,8 +1,10 @@
-import { Container } from '@chakra-ui/react';
+import { Container, VStack } from '@chakra-ui/react';
 
 const Home = () => {
-    return <Container>
-        
+    return <Container w="100%">
+        <VStack>
+            
+        </VStack>
     </Container>;
 };
 
