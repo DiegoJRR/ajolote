@@ -22,7 +22,7 @@ const useSignals = (user_id: string) => {
           setSignal(signalsData);
         }
       });
-  });
+  }, []);
 
   return signals;
 };

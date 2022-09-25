@@ -17,7 +17,7 @@ const useInsight = (insight_id: number) => {
       .select("*")
       .eq("id", insight_id)
       .then((response) => setInsight(response.data?.at(0)));
-  });
+  }, []);
 
   return insight;
 };
